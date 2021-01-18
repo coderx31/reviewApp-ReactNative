@@ -3,9 +3,10 @@ import React, {useState} from 'react';
 import * as Font from 'expo-font';
 import Home from './screens/home';
 import AppLoading from 'expo-app-loading';
-import { useFonts} from 'expo-font';
+import Navigator from './routes/homeStack';
 
-/* error occurred */
+
+/* error occurred */ // error fixed
 const getFonts = () => Font.loadAsync({
   'Poppins-regular': require('./assets/fonts/Poppins-Regular.ttf'),
   'Poppins-bold': require('./assets/fonts/Poppins-Bold.ttf')
@@ -14,12 +15,6 @@ const getFonts = () => Font.loadAsync({
 
 
 export default function App() {
-
-   // loading custom fonts
-  // const loadFonts = useFonts({
-  //   'Poppins-regular': require('./assets/fonts/Poppins-Regular.ttf'),
-  //   'Poppins-bold': require('./assets/fonts/Poppins-Bold.ttf')
-  // });
 
   const [fontsLoaded, setFontsLoaded] = useState(false);
   if(!fontsLoaded){
@@ -34,7 +29,7 @@ export default function App() {
     );
   }else{
     return(
-      <Home />
+      <Navigator />
     );
   }
   

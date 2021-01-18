@@ -7,7 +7,7 @@ export const globalStyles = StyleSheet.create({
         
     },
     text:{
-        fontFamily: 'Poppins-bold',
+        fontFamily: 'Poppins-regular',
         fontSize: 24,
         color: '#333'
     },

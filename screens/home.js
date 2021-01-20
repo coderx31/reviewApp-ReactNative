@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal } from 'react-native';
 import { globalStyles } from '../styles/global';
+import Card from '../shared/card';
 
 export default function Home({ navigation }){
     const [reviews, setReviews] = useState([
@@ -12,12 +13,21 @@ export default function Home({ navigation }){
 
     return(
         <View style={globalStyles.container}>
+
+            <Modal visible={true}>
+                <View style={styles.modalContent}>
+                    <Text>Hello From the modal</Text>
+                </View>
+            </Modal>
+
             <FlatList 
              data={reviews}
              renderItem={({ item }) => {
                  return(
                     <TouchableOpacity onPress={() => navigation.navigate('ReviewDetail', item)}>
-                        <Text style={globalStyles.text}>{ item.title }</Text>
+                        <Card >
+                            <Text style={globalStyles.text}>{ item.title }</Text>
+                        </Card>
                     </TouchableOpacity>
                  );
              }}
@@ -26,3 +36,9 @@ export default function Home({ navigation }){
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    modalContent:{
+        
+    }
+});
